@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title></title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  
+  <body>
+    <h1>Login</h1>
+
+    <form method="POST" th:action="@{/login}" id="loginForm">
+      <label for="username">Username: </label>
+      <input type="text" name="username" id="username" required/><br/>
+      
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password" required/><br/>
+
+      <div th:if="${param.error}">
+        Ошибка входа. Проверьте логин и пароль.
+      </div>
+      
+      <input type="submit" value="Login"/>
+    </form>
+
+    <div class="login-options">
+      <p>Already have an account?<a th:href="@{/registration}"> Create an account</a></p>
+    </div>
+  </body>
+</html>

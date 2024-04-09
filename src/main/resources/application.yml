@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${DATASOURCE_DB_NAME:xyzwitter}
+    username: ${DATASOURCE_USER:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: db/changelog/main-changelog.xml
+jwt:
+  secret: 12345678901234567890123456789012
+  lifetime: 30s

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Taco Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+
+<body>
+<h1>Registration</h1>
+
+<form method="POST" id="registerForm" th:action="@{/registration}" th:object="${registrationForm}">
+
+    <label for="username">Username: </label>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('username')}"
+          th:attr="title=${#fields.errors('username')}">
+            <img th:src="@{/images/error.png}" width="15" height="15" alt="username error"/>
+    </span>
+    <input type="text" th:field="*{username}" id="username" required/>
+    <br/>
+
+    <label for="password">Password: </label>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('password')}"
+          th:attr="title=${#fields.errors('password')}">
+            <img th:src="@{/images/error.png}" width="15" height="15" alt="password error"/>
+    </span>
+    <input type="password" th:field="*{password}" id="password" required/><br/>
+
+    <label for="confirmPassword">Confirm password: </label>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('confirmPassword')}"
+          th:attr="title=${#fields.errors('confirmPassword')}">
+            <img th:src="@{/images/error.png}" width="15" height="15" alt="password error"/>
+    </span>
+    <input type="password" th:field="*{confirmPassword}" id="confirmPassword" required/><br/>
+
+    <label for="email">Email: </label>
+    <input type="text" name="email" id="email"/><br/>
+
+    <input type="submit" value="Registration"/>
+</form>
+<div class="login-options">
+    <p>Already have an account?<a th:href="@{/login}"> Sign in</a></p>
+</div>
+</body>
+</html>

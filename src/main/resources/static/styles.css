@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #0D1117;
+    color: #C9D1D9;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    width: 300px;
+    background-color: #161B22;
+    border-radius: 6px;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    color: #C9D1D9;
+}
+
+input[type="text"], input[type="password"] {
+    background-color: #0D1117;
+    border: 1px solid #30363D;
+    border-radius: 6px;
+    color: #C9D1D9;
+    padding: 12px 0;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: #238636;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #2EA043;
+    color: white;
+}
+.login-options {
+    width: 300px;
+    background-color: #161B22;
+    border-radius: 6px;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-options a {
+    color: #58A6FF;
+    text-decoration: none;
+}
+
+.login-options p {
+    color: #C9D1D9;
+}
+.validationError {
+    color: red;
+}

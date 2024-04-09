@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="v1.0.0-schema-init" author="Rybakov O.">
+        <sql>
+            CREATE SCHEMA IF NOT EXISTS users;
+        </sql>
+
+        <createTable tableName="users" schemaName="users">
+            <column name="id" type="serial8">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="username" type="text">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="text">
+                <constraints nullable="true" unique="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="roles" schemaName="users">
+            <column name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="authority" type="text">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="users_roles" schemaName="users">
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="users_roles" schemaName="users" columnNames="user_id, role_id"
+                       constraintName="pk_users_roles"/>
+    </changeSet>
+</databaseChangeLog>
